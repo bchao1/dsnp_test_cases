@@ -6,8 +6,8 @@ from numpy.random import shuffle
 
 
 
-cmd_list = ['mtn', 'mtd', 'mtp']
-probs = [0.6, 0.2, 0.2]
+cmd_list = ['mtn', 'mtd', 'mtp']  # `reset` command doesn't need to be extensively tested.
+probs = [0.5, 0.3, 0.2]
 
 def create_error(p = 0):
     """ Specify the probability to create an invalid option """
@@ -72,10 +72,6 @@ def get_mtd_cmd():
     shuffle(opts)
     return cmd + ' ' + ' '.join(opts)
 
-def get_mtr_cmd():
-    cmd = 'mtr'
-    return cmd + ' ' + str(randint(100, 660) * 100)
-
 test = 1000
 if len(sys.argv) > 1:
     test = int(sys.argv[1])
@@ -88,14 +84,13 @@ for _ in range(test):
         line = get_mtn_cmd()
     elif cmd == 'mtd':
         line = get_mtd_cmd()
-    elif cmd == 'mtr':
-        line = get_mtr_cmd()
     else:
         line = cmd
 
     line += '\n'
     dofile += line
 
+dofile += 'mtr 0\nmtr 65536\nmtr 100\n'  # Test reset command. One check is sufficient.
 dofile += 'usage -all\n'
 dofile += "q -f\n"
 

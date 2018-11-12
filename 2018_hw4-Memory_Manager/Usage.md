@@ -3,6 +3,7 @@
 - `python3`
 - `numpy`
 - `colordiff`
+
 ***
 To install:  
 ```
@@ -27,3 +28,13 @@ pip3 install numpy
     This would generate a test case file `mydo` of 1000 lines, run your code, run the reference code, and compare the results.
       
     Output files are `out.mine` and `out.ref` for your reference.
+
+## (TODO) Custom test flags
+`
+$ ./check linux16 [-n, -r, -e]
+`
+- `-n` : *Normal testing*. Contains a balanced amount of `new, delete, print, reset` commands and some illegal commands.
+
+- `-e`: *Extensive testing of error messages*. Test file contains large number of illegal commands. Use this to check whether your error messages matches the spec.
+
+- `-r`: *Extensive testing of recycle list*. A majority of `mtnew` commands allocates small number of arrays of varying size (in order to create recyclce list of different indices), and `mtdelete` randomly deletes large number of arrays.
