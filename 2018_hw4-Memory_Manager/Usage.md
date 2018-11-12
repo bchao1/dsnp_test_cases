@@ -29,12 +29,10 @@ pip3 install numpy
       
     Output files are `out.mine` and `out.ref` for your reference.
 
-## (TODO) Custom test flags
-`
-$ ./check linux16 [-n, -r, -e]
-`
-- `-n` : *Normal testing*. Contains a balanced amount of `new, delete, print, reset` commands and some illegal commands.
+## Customize your test cases (modify gen.py)
 
-- `-e`: *Extensive testing of error messages*. Test file contains large number of illegal commands. Use this to check whether your error messages matches the spec.
+- *Normal testing*: Should contain a balanced amount of `new, delete, print, reset` commands and some illegal commands. 
 
-- `-r`: *Extensive testing of recycle list*. A majority of `mtnew` commands allocates small number of arrays of varying size (in order to create recyclce list of different indices), and `mtdelete` randomly deletes large number of arrays.
+- *Extensive testing of error messages*: The probability of illegal commands should be high.
+
+- *Extensive testing of recycle list*: A majority of `mtnew` commands should allocate small number of arrays of varying size (in order to create recyclce list of different indices), and `mtdelete` randomly deletes large number of arrays.
