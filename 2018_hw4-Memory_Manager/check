@@ -1,5 +1,5 @@
 echo "=== Generating test cases ==="
-python3 gen.py
+python3 gen.py $2
 echo "=== Running your code ==="
 ./memTest <mydo &>out.mine
 echo "=== Runnning reference code ==="
