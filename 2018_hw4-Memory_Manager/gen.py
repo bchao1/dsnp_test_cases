@@ -6,10 +6,10 @@ from numpy.random import shuffle
 
 
 
-cmd_list = ['mtn', 'mtd', 'mtp', 'mtr']
-probs = ['0.45', '0.45', '0.05', '0.05']
+cmd_list = ['mtn', 'mtd', 'mtp']
+probs = [0.6, 0.2, 0.2]
 
-def create_error(p = 0.1):
+def create_error(p = 0):
     """ Specify the probability to create an invalid option """
     return uniform() < p
 
@@ -43,14 +43,14 @@ def special_opt(opt_type, max_n):
 
 def get_mtn_cmd():
     cmd = 'mtn'
-    if create_error(0.05): # No options specified, ERROR!
+    if create_error(0): # No options specified, ERROR!
         return cmd
     if create_error():
         return ' '.join([cmd, illegal_opt()])  # Specify an illegal option after 'mtn', ERROR!
 
-    opts = [num_obj_opt(-100, 1000) if not create_error(0.2) else '', \
-            illegal_opt() if create_error(0.2) else '', \
-            special_opt('-a', 100) if uniform() > 0.5 else '',]
+    opts = [num_obj_opt(1, 10) if not create_error(0) else '', \
+            illegal_opt() if create_error(0) else '', \
+            special_opt('-a', 1024) if uniform() > 0.2 else '',]
 
     opts = list(filter(lambda opt: opt != '', opts))
     shuffle(opts)
@@ -58,20 +58,23 @@ def get_mtn_cmd():
 
 def get_mtd_cmd():
     cmd = 'mtd'
-    if create_error(0.05): # No options specified, ERROR!
+    if create_error(0): # No options specified, ERROR!
         return cmd
     if create_error():
         return ' '.join([cmd, illegal_opt()])  # Specify an illegal option after 'mtn', ERROR!
     
-    opts = [(special_opt('-r', 10000) if uniform() > 0.5 else special_opt('-i', 10000)) \
-            if not create_error(0.2) else '',
-            illegal_opt() if create_error(0.2) else '', \
-            '-a' if uniform() > 0.5 else '']
+    opts = [(special_opt('-r', 10000) if uniform() > 0.3 else special_opt('-i', 1000)) \
+            if not create_error(0) else '',
+            illegal_opt() if create_error(0) else '', \
+            '-a' if uniform() > 0.1 else '']
 
     opts = list(filter(lambda opt: opt != '', opts))
     shuffle(opts)
     return cmd + ' ' + ' '.join(opts)
 
+def get_mtr_cmd():
+    cmd = 'mtr'
+    return cmd + ' ' + str(randint(100, 660) * 100)
 
 test = 1000
 if len(sys.argv) > 1:
@@ -85,11 +88,15 @@ for _ in range(test):
         line = get_mtn_cmd()
     elif cmd == 'mtd':
         line = get_mtd_cmd()
+    elif cmd == 'mtr':
+        line = get_mtr_cmd()
     else:
         line = cmd
 
     line += '\n'
     dofile += line
+
+dofile += 'usage -all\n'
 dofile += "q -f\n"
 
 with open("mydo", 'w') as file:
