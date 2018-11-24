@@ -1,0 +1,9 @@
+echo "[ Generating test cases ]"
+python3 gen.py $2
+echo "[ Running your program ]"
+./adtTest.$1 <mydo &>out.mine
+echo "[ Running reference program ]"
+./adtTest-$3.$1 <mydo &>out.ref
+echo "[ Checking results ]"
+colordiff out.mine out.ref
+
