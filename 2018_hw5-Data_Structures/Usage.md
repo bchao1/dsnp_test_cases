@@ -26,7 +26,7 @@ pip3 install numpy
     $ ./check bst 1000 linux16
     ```
     This would generate a test case file `mydo` of 1000 lines, run your program `adtTest.bst`, run the reference program `adtTest-linux16.bst`, and compare the results.
-      
+    
     Output files are `out.mine` and `out.ref` for your reference.
 3. Data structure flag names:
     - Dynamic array: `array`
