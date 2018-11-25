@@ -1,0 +1,8 @@
+echo "[ Generating test cases ]"
+python3 gen.py $2
+echo "[ Running your program ]"
+./mydb <mydo &>out.mine
+echo "[ Running reference program ]"
+./mydb-$1 <mydo &>out.ref
+echo "[ Checking results ]"
+colordiff out.mine out.ref
