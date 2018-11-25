@@ -29,3 +29,6 @@ pip3 install numpy
       
     Output files are `out.mine` and `out.ref` for your reference.
 3. A folder `tests` will be created after running `./check`. It contains 10 randomly generated json files named `test1.json` ~ `test10.json`for testing purposes.
+
+## Notes
+`Tab` command tests are currently not supported. Feel free to submit your `Tab` command test cases.
