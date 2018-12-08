@@ -17,7 +17,7 @@ pip3 install numpy
     - The reference program (eg. `cirTest-linux16`)
     - Bash script file `check`, `check_basic`
     - Test case generator `gen.py`, `gen_basic.py`
-    - The .aag files folder
+    - The .aag files folder `aag_test`
 ### Basic
 1. It is advised that you first check all the basic commands listed below to ensure that the circuit is constructed correctly.
     ```
