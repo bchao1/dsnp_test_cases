@@ -1,10 +1,12 @@
 echo "=== Generating basic test cases ==="
 python3 gen_basic.py
-for dofile in "dofiles"/*
+for dofile in "basic_dofiles"/*
 do
     echo "=== Checking dofile $dofile ==="
-    ./cirTest <$dofile &>out.mine
-    ./cirTest-$1 <$dofile &>out.ref
-    colordiff out.mine out.ref
+    ./cirTest <$dofile &>$dofile.out.mine
+    ./cirTest-$1 <$dofile &>$dofile.out.ref
+    colordiff $dofile.out.mine $dofile.out.ref
+    mv $dofile.out.mine ./basic_outputs/mine/
+    mv $dofile.out.ref ./basic_outputs/ref/
 done
 

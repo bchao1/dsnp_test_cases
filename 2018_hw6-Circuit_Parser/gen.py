@@ -30,6 +30,8 @@ dofile += "cirwrite\n"
 for _ in range(0, num_test):
     fan_type = 'fanin' #if np.random.uniform() > 0.5 else 'fanout'
     dofile += "cirgate {} -{} {}\n".format(randint(0, total_gates), fan_type, randint(0, max_levels))
+
+dofile += "usage\n"
 dofile += 'q -f\n'
 
 with open('mydo', 'w') as f:
