@@ -1,7 +1,7 @@
 import os
 import sys
 
-aag_dir = './aag_test'
+aag_dir = './aag_files'
 do_dir = './basic_dofiles'
 out_dir = './basic_outputs'
 

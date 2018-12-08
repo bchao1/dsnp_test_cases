@@ -8,7 +8,7 @@ if len(sys.argv) != 3:
     print("Usage: python3 <aag file> <test cases>")
     exit()
 
-aag_dir = './aag_test'
+aag_dir = './aag_files'
 aag_file = os.path.join(aag_dir, sys.argv[1])
 
 total_gates = 0
