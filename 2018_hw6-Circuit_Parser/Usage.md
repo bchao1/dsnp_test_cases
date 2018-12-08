@@ -54,5 +54,13 @@ pip3 install numpy
     This would generate a dofile `mydo` with basic testing and 1000 `cirgate -fanin` commands, run your program, run the reference program, and compare the results.
 
     Outputs are `out.mine` and `out.ref` for your reference.
+
 ### To be updated
 - `-fanout` list depends on the way you parse the aiger file. Currently the `-fanout` flag in `cirgate` command is not supported.
+
+### Known bugs in reference program
+- If a gate have both inverting an non-inverting fanouts, the reference program is unable to distinguish the fanouts.
+
+|Circuit|Reference output|
+|-------|----------------|
+|![circuit](./img/opt04.png)|![ref](./img/ref-bug.png)
