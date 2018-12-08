@@ -17,7 +17,7 @@ pip3 install numpy
     - The reference program (eg. `cirTest-linux16`)
     - Bash script file `check`, `check_basic`
     - Test case generator `gen.py`, `gen_basic.py`
-    - The .aag files folder `aag_test`
+    - The .aag files folder `aag_files`
 ### Basic
 1. It is advised that you first check all the basic commands listed below to ensure that the circuit is constructed correctly.
     ```
@@ -51,7 +51,7 @@ pip3 install numpy
     ```
     $ ./check C432.aag 1000 linux16
     ```
-    This would generate a dofile `mydo` with basic testing and 1000 `cirgate -fanin` commands, run your program, run the reference program, and compare the results.
+    This would generate a dofile `mydo` with basic testing and 1000 `cirgate -fanin` commands on the circuit defined in `C432.aag`. It then runs your program, runs the reference program, and compares the results.
 
     Outputs are `out.mine` and `out.ref` for your reference.
 
