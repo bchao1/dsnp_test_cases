@@ -63,4 +63,4 @@ pip3 install numpy
 
 |Circuit|Reference output|
 |-------|----------------|
-|![circuit](./img/opt04.png)|![ref](./img/ref-bug.png)
+|![circuit](./img/opt04.PNG)|![ref](./img/ref-bug.PNG)
