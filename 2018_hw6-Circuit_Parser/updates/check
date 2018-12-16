@@ -1,0 +1,8 @@
+echo "=== Generating test cases ==="
+python3 gen.py $1
+echo "=== Running your program ==="
+./cirTest <mydo &>out.mine
+echo "=== Running ref program ==="
+./cirTest-$2 <mydo &>out.ref
+echo "=== Comparing results ==="
+colordiff out.mine out.ref

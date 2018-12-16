@@ -55,8 +55,24 @@ pip3 install numpy
 
     Outputs are `out.mine` and `out.ref` for your reference.
 
-### To be updated
-- `-fanout` list depends on the way you parse the aiger file. Currently the `-fanout` flag in `cirgate` command is not supported.
+### Added Feature : .aag file generator
+Put your program and the ref program in `updates` for testing.
+
+1. Added a random .aag file generator and dofile generator (supports all commands).
+2. Go to the folder, on the terminal type:
+    ```
+    $ ./check [number of test cases] [platform]
+    ```
+    For example:
+    ```
+    $ ./check 1000 linux16
+    ```
+    This would generate a `.aag` file `test.aag`, a dofile `mydo` based on `test.aag`. It then runs your program, runs the reference program, and compares the results.
+
+You can specify your own parameters in `gen.py`.
+#### What is `p_base`
+`p_base` determines the *flattness* of the circuit generated. The smaller `p_base`, the flatter the circuit. Refer to https://byronhsu.github.io/AAG-Visualizer/ for a great visualization.
+
 
 ### Known bugs in reference program
 - If a gate have both inverting an non-inverting fanouts, the reference program is unable to distinguish the fanouts.
