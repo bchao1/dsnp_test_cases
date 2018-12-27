@@ -12,7 +12,8 @@ Debugging is no doubt a trial for all students. To ease the process, I've decide
 - hw2: Command Line Parser.
 - hw3: JSON Database Manager + Command Line.
 - hw4: Memory Manager.
-- hw5: Data Structure Implementations.
+- hw5: Data Structure Implementations: Array, Linked List, and Binary Search Tree.
 - hw6: Circuits and Graph Traversals.
+- hw7: Data Structure Implementations: Hash Table and Heap.
 ***
 PRs are welcome.
