@@ -1,0 +1,9 @@
+echo "=== Generating test cases ==="
+python3 gen.py
+echo "=== Running your program ==="
+./taskMgr <mydo &>out.mine
+echo "=== Running reference program ==="
+./taskMgr-$1 <mydo &>out.ref
+echo "=== Comparing results ==="
+colordiff out.mine out.ref | tee diff
+
